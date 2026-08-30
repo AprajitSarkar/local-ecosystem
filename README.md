@@ -2,96 +2,65 @@
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)](https://dart.dev)
-[![Platform](https://img.shields.io/badge/Platforms-Android%20%7C%20Windows%20%7C%20Linux%20%7C%20iOS%20%7C%20Web-blue)](#supported-platforms)
+[![Platform](https://img.shields.io/badge/Platforms-Android%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-blue)](#supported-platforms)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Offline](https://img.shields.io/badge/Offline-100%25%20LAN%20P2P-brightgreen)](#security--privacy)
+[![100% Offline](https://img.shields.io/badge/Offline-100%25%20LAN%20P2P-brightgreen)](#security--privacy)
 
-**Local Ecosystem** is a high-performance, private, and 100% offline local area network (LAN) device ecosystem. It seamlessly bridges **Android, Windows, Linux, iOS/iPadOS, and Web browsers** to share files at physical network speeds, synchronize clipboards, push links, and turn your mobile phone into a wireless trackpad and keyboard for your PC — with **zero cloud dependencies** and **no internet required**.
+**Local Ecosystem** is a high-performance, 100% offline peer-to-peer (P2P) local network ecosystem. It connects **Android, Windows, Linux, and Web browsers** to share files at physical Wi-Fi/Ethernet speeds, synchronize clipboards, push links, and turn your mobile phone into a wireless trackpad and keyboard for your PC.
+
+**100% Offline**: Operates entirely over your local Wi-Fi, Ethernet, or mobile hotspot. Zero internet connection required, zero cloud servers, zero telemetry.
 
 ---
 
-## Key Features
+## ⚡ Two Ways to Share
 
-### 🌐 Zero-Install Web Portal & PWA (Share to Any Device)
-- **No App Installation Required**: Need to send a file to a friend's iPhone, iPad, Mac, or guest PC? Simply open the built-in **Web Portal** on your local network.
-- **Progressive Web App (PWA)**: Recipients can install the Web Portal directly from Safari/Chrome with full offline caching and two-way upload/download capabilities.
-- **Cross-Browser Compatible**: Works out-of-the-box on iOS Safari, macOS Safari, Chrome, Edge, and Firefox.
+### 1. 📱 Native App-to-App (Full Features & Maximum Speed)
+When both devices have the Local Ecosystem app installed (**Android, Windows, Linux**):
+- **Full Transfer Speed (80–120+ MB/s)**: High-throughput TCP socket streaming over local Wi-Fi 5/6 and Gigabit LAN.
+- **🖱️ Remote Trackpad & Keyboard**: Control your Windows or Linux PC mouse cursor from your phone (tap to click, two-finger scroll, right-click, remote typing).
+- **📋 Real-Time Clipboard Sync**: Copy text on your phone, paste instantly on your PC (and vice versa).
+- **🔗 Instant Link Dispatch**: Share links from your mobile browser and have them open automatically in your desktop browser.
+- **🤫 Silent Windows Context Menu**: Right-click any file in Windows Explorer -> **"Send to Ecosystem"** (runs headlessly in the background with native Windows notifications).
+- **Automatic Peer Discovery**: Devices automatically discover each other over UDP and subnet scanning.
 
-### 🖱️ Remote Trackpad & Wireless Keyboard
-- **Phone as a PC Mouse**: Control your Windows or Linux desktop mouse pointer wirelessly with low-latency touch gestures (tap to click, two-finger scroll, right-click).
-- **Remote Typing**: Send keystrokes and text directly to active desktop input fields from your phone.
-- **Smart OS Detection**: Automatically recognizes desktop hosts (Windows / Linux) and unlocks remote control controls.
+### 2. 🌐 Built-In Web Portal (Zero-Install Receiver for Guests)
+Need to send files to a friend's iPhone, iPad, Mac, or guest PC without installing the app?
+- The host app spins up a local web server (e.g. `http://192.168.1.x:8080`).
+- Any browser on the same Wi-Fi can open the page to download or upload files directly at **40–70 MB/s**.
+- *Note*: Advanced features (remote trackpad, system clipboard sync, silent send) require the native app.
 
-### ⚡ Ultra-Fast Local File Streaming
-- **Native App-to-App Transfer**: Transfers files using high-throughput TCP socket streaming with adaptive chunking, reaching speeds of **80–120+ MB/s** on Wi-Fi 5/6 and Gigabit LAN.
-- **App-to-Web Portal Streaming**: Stream directly to web browsers at **40–70 MB/s** via HTTP chunked streaming.
-- **Zero Compression Loss & SHA-256 Integrity**: Complete end-to-end checksum verification ensures files are transferred bit-for-bit with 100% integrity.
-- **Multi-Device Broadcast**: Send files simultaneously to all paired devices in your ecosystem with a single tap.
+---
 
-### 🤫 Silent Windows Explorer Context Menu ("Send to Ecosystem")
-- **Right-Click & Send**: Select any file or folder in Windows File Explorer, right-click, and click **"Send to Ecosystem"**.
-- **100% Headless Background Execution**: Transfers files silently in the background without opening the app window or navigating through menus.
-- **Native Action Center Notifications**: Displays Windows balloon toasts for discovery status, streaming progress, and completion chimes.
+## 📊 Feature & Platform Matrix
 
-### 📋 Real-Time Clipboard Synchronization
-- Copy text on your Android phone and paste it instantly on your Windows/Linux PC or iPad.
-- Cryptographically signed and loop-safe to prevent echo loops across the network.
+| Feature | 📱 Native App (Android, Windows, Linux) | 🌐 Web Portal (Any Browser / Guest) |
+|---|---|---|
+| **High-Speed File Transfer** | ✅ **80 – 120+ MB/s** (TCP Stream) | ✅ **40 – 70 MB/s** (HTTP Stream) |
+| **Zero App Install Required** | ❌ (Requires App) | ✅ (Open local IP in browser) |
+| **Remote Trackpad & Mouse** | ✅ (Phone to PC) | ❌ (Browser sandbox limit) |
+| **Wireless Keyboard Typing** | ✅ (Phone to PC) | ❌ (Browser sandbox limit) |
+| **Real-Time Clipboard Sync** | ✅ (Bidirectional) | ❌ (Browser sandbox limit) |
+| **Instant Link Dispatch** | ✅ (Opens in default browser) | ❌ |
+| **Right-Click Context Menu** | ✅ (Windows Explorer) | ❌ |
+| **Offline Hotspot Mode** | ✅ (Works with zero internet) | ✅ (Works with zero internet) |
 
-### 🔗 Instant Remote Link Dispatch
-- Push URLs from your phone to open automatically in your desktop browser, or vice versa.
+---
 
-### 📡 Offline Hotspot & Direct Wi-Fi Mode (No Router Needed)
-- **No Wi-Fi Router? No Problem**: Simply turn on Mobile Hotspot or Wi-Fi Direct on one device and connect the other.
-- Local Ecosystem automatically negotiates discovery and maintains full high-speed file transfer and remote control offline.
+## 🔒 Privacy & Local Security
 
-### 🔒 Privacy & Cryptographic Security
-- **100% Offline & Local**: Zero telemetry, zero tracking, and zero cloud relays. Your data never leaves your local physical network.
+- **100% Local & Offline**: Data flows directly between devices over physical LAN sockets.
+- **Zero Cloud & Zero Telemetry**: No servers, no tracking, no external relays.
 - **Ed25519 Cryptographic Pairing**: Explicit one-time device trust with asymmetric public key validation.
-- **Path Traversal Protection**: Automatic filename sanitization prevents malicious directory traversal attacks.
-
----
-
-## Transfer Speed Benchmarks
-
-| Transfer Mode | Typical Speeds (Wi-Fi 5 / 6 / Gigabit) | Protocol | Recipient Requirements |
-|---|---|---|---|
-| **Native App ➔ Native App** | **80 – 120+ MB/s** | P2P TCP Socket Stream | Local Ecosystem Installed |
-| **App ➔ Web Portal (iOS/Mac/PC)** | **40 – 70 MB/s** | HTTP Chunked Stream | Web Browser (Safari, Chrome, Edge) |
-| **App ➔ PWA (Offline Web)** | **40 – 70 MB/s** | HTTP REST & ServiceWorker | Installed PWA from browser |
-| **Cloud-based Sharing (AirDrop alternatives)** | *Limited by Internet Bandwidth* | Cloud Relay | Internet Connection |
-
----
-
-## Supported Platforms
-
-| Platform | Discovery | File Transfer | Trackpad & Keyboard | Clipboard Sync | Silent CLI / Context Menu |
-|---|---|---|---|---|---|
-| **Android** | UDP + mDNS | ✅ (Send & Receive) | ✅ (Remote Client) | ✅ (Foreground/Service) | ✅ (Share Sheet) |
-| **Windows** | UDP + Subnet Probe | ✅ (Send & Receive) | ✅ (Host Server) | ✅ (System Clipboard) | ✅ (Right-Click Explorer) |
-| **Linux** | UDP + mDNS | ✅ (Send & Receive) | ✅ (Host Server) | ✅ (System Clipboard) | ✅ (CLI `--send`) |
-| **iOS / iPadOS** | Bonjour / Web | ✅ (App & Web Portal) | ✅ (Remote Client) | ✅ (Foreground) | ✅ (Share Sheet) |
-| **Web / PWA** | HTTP Subnet API | ✅ (Web Portal UI) | ❌ | ❌ | ❌ |
-
----
-
-## Receive Folder Management
-
-Each device configures its own default receive folder (**Settings → Transfers → Receive Folder**). Incoming files are saved automatically without interrupting your workflow.
-
-- **Android**: `/sdcard/Download/LocalEcosystem/<Sender Name>/`
-- **Windows**: `C:\Users\<User>\Downloads\LocalEcosystem\<Sender Name>\`
-- **Linux**: `~/Downloads/LocalEcosystem/<Sender Name>/`
-- **iOS/iPadOS**: `Files App → Local Ecosystem / Received`
+- **Path Traversal Protection**: Automatic filename sanitization prevents directory traversal attacks.
 
 ---
 
 ## 📦 Direct Downloads & Releases
 
-Prebuilt, verified binaries are available on the [**GitHub Releases**](https://github.com/AprajitSarkar/local-ecosystem/releases/latest) page:
+Prebuilt, verified releases are available on the [**GitHub Releases**](https://github.com/AprajitSarkar/local-ecosystem/releases/latest) page:
 
 - 📱 [**LocalEcosystem-v1.0.0.apk**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-v1.0.0.apk) — Android phone & tablet release package (Android 8.0+)
 - 🪟 [**LocalEcosystem-Windows-v1.0.0.zip**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-Windows-v1.0.0.zip) — Portable Windows x64 release with Explorer context menu
-- 🌐 [**LocalEcosystem-Web-PWA-v1.0.0.zip**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-Web-PWA-v1.0.0.zip) — Zero-install Web Portal & Offline PWA bundle
 
 ---
 
