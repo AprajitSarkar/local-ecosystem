@@ -85,33 +85,52 @@ Each device configures its own default receive folder (**Settings → Transfers 
 
 ---
 
-## Getting Started & Installation
+## 📦 Direct Downloads & Releases
 
-### Android
-1. Download the latest `local_ecosystem.apk` from the [Releases](https://github.com/) page.
-2. Install the APK on your Android device (enable *Install from unknown sources* if prompted).
-3. Grant Local Network and Storage permissions.
+Prebuilt, verified binaries are available on the [**GitHub Releases**](https://github.com/AprajitSarkar/local-ecosystem/releases/latest) page:
 
-### Windows
-1. Download `LocalEcosystem-Windows.zip` from [Releases](https://github.com/).
-2. Extract the folder and run `local_ecosystem.exe`.
-3. To enable the right-click Explorer context menu, right-click `Register-ContextMenu.bat` and select **Run as administrator**.
-
-### Web Portal (No Install)
-1. Open the Local Ecosystem app on your phone or PC.
-2. Navigate to **Settings → Web Portal** and note the local IP address (e.g., `http://192.168.1.184:8080`).
-3. Open that address in Safari, Chrome, or Edge on any device connected to the same Wi-Fi network.
+- 📱 [**LocalEcosystem-v1.0.0.apk**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-v1.0.0.apk) — Android phone & tablet release package (Android 8.0+)
+- 🪟 [**LocalEcosystem-Windows-v1.0.0.zip**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-Windows-v1.0.0.zip) — Portable Windows x64 release with Explorer context menu
+- 🌐 [**LocalEcosystem-Web-PWA-v1.0.0.zip**](https://github.com/AprajitSarkar/local-ecosystem/releases/download/v1.0.0/LocalEcosystem-Web-PWA-v1.0.0.zip) — Zero-install Web Portal & Offline PWA bundle
 
 ---
 
-## Building from Source
+## 📁 Repository Structure
+
+```
+local-ecosystem/
+├── App/                      # Core Flutter multi-platform application
+│   ├── android/              # Native Android host & DirectShareActivity
+│   ├── windows/              # Native Windows runner & desktop hooks
+│   ├── linux/                # Native Linux runner
+│   ├── ios/                  # iOS runner & Share Sheet extension
+│   ├── web/                  # Web portal, PWA manifest, and WASM runtime
+│   └── lib/                  # Clean architecture Dart codebase
+├── docs/                     # Technical specifications & architecture guides
+│   ├── ARCHITECTURE.md       # High-throughput streaming & protocol design
+│   ├── BENCHMARKS.md         # Wi-Fi 5/6 & LAN throughput test matrix
+│   └── UI_SPEC.md            # Design system, themes & interaction specs
+├── scripts/                  # Developer & automation scripts
+│   ├── windows/              # Windows build scripts & context menu installer
+│   │   ├── Build-Native-Windows.bat
+│   │   └── Register-ContextMenu.bat
+│   └── setup/                # Android SDK & C++ build tools setup
+│       ├── install_android_sdk.bat
+│       └── Install-VS-BuildTools.bat
+├── LICENSE                   # MIT Open Source License
+└── README.md                 # Master documentation
+```
+
+---
+
+## 🛠️ Building from Source
 
 ### Prerequisites
 - [Flutter SDK](https://flutter.dev/docs/get-started/install) (v3.22+ recommended)
 - [Dart SDK](https://dart.dev/get-dart)
 - Platform-specific build tools:
-  - **Android**: Android SDK & NDK
-  - **Windows**: Visual Studio 2022 with *Desktop development with C++*
+  - **Android**: Android SDK & NDK (`scripts/setup/install_android_sdk.bat`)
+  - **Windows**: Visual Studio 2022 C++ Tools (`scripts/setup/Install-VS-BuildTools.bat`)
   - **Linux**: `clang`, `cmake`, `ninja-build`, `libgtk-3-dev`
   - **iOS/macOS**: Xcode (macOS only)
 
@@ -119,13 +138,13 @@ Each device configures its own default receive folder (**Settings → Transfers 
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/local-ecosystem.git
+git clone https://github.com/AprajitSarkar/local-ecosystem.git
 cd local-ecosystem/App
 
 # Install Flutter dependencies
 flutter pub get
 
-# Generate Drift database and code models
+# Generate Drift SQLite database and models
 dart run build_runner build --delete-conflicting-outputs
 
 # Build Android Release APK

@@ -6,8 +6,13 @@ echo ========================================================
 echo   Registering "Send to Ecosystem" Context Menu
 echo ========================================================
 
-set "APP_EXE=%~dp0local_ecosystem.exe"
-set "APP_ICON=%~dp0local_ecosystem.exe,0"
+set "APP_EXE=%~dp0..\..\build_artifacts\windows\LocalEcosystem-Native\local_ecosystem.exe"
+set "APP_ICON=%~dp0..\..\build_artifacts\windows\LocalEcosystem-Native\local_ecosystem.exe,0"
+
+if not exist "%APP_EXE%" (
+    set "APP_EXE=%~dp0local_ecosystem.exe"
+    set "APP_ICON=%~dp0local_ecosystem.exe,0"
+)
 
 if not exist "%APP_EXE%" (
     set "APP_EXE=%~dp0build_artifacts\windows\LocalEcosystem-Native\local_ecosystem.exe"
