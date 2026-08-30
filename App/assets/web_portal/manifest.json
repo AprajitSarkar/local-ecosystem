@@ -1,0 +1,45 @@
+{
+    "name": "Local Ecosystem",
+    "short_name": "Local Ecosystem",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#0B0F19",
+    "theme_color": "#3B82F6",
+    "description": "Zero-Cloud High-Speed Multi-Device File Transfer & Clipboard Sync for iPad, Linux, Android, and Windows",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "share_target": {
+        "action": "./#share-target",
+        "method": "GET",
+        "params": {
+            "title": "title",
+            "text": "text",
+            "url": "url"
+        }
+    }
+}

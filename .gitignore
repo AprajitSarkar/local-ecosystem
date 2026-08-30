@@ -1,0 +1,14 @@
+# Build outputs and binaries
+build_artifacts/
+local_ecosystem.exe
+*.apk
+*.exe
+
+# Flutter build caches and temporary tools
+App/.dart_tool/
+App/build/
+App/.flutter-plugins-dependencies
+App/.pub-cache/
+App/.pub/
+.DS_Store
+*.pyc
